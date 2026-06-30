@@ -1,11 +1,9 @@
 package com.example.demo.service;
 
-import java.util.List;
-
-import org.springframework.stereotype.Service;
-
 import com.example.demo.entity.Metric;
 import com.example.demo.repository.MetricRepository;
+import org.springframework.stereotype.Service;
+import java.util.List;
 
 @Service
 public class MetricService {
@@ -17,36 +15,42 @@ public class MetricService {
     }
 
     public Metric saveMetric(Metric metric) {
-        if (metric.getSensorName() == null || metric.getValue() == null) {
+        if (metric.getMetricName() == null || metric.getValue() == null) {
             return repository.save(metric);
         }
 
-        switch (metric.getSensorName()) {
-            case "CPU-Usage" -> {
+        String server = metric.getInstanceId() != null ? metric.getInstanceId() : "UNKNOWN_HOST";
+
+        switch (metric.getMetricName()) {
+            case "cpu_usage" -> {
                 if (metric.getValue() > 90.0) {
                     metric.setIsAlert(true);
-                    System.out.println("[ALERTA DEVOPS] ¡Carga de CPU crítica!: " + metric.getValue() + "%");
+                    System.out.println("[ALERTA] ¡Carga de CPU crítica en " + server + "!: " + metric.getValue() + "%");
                 }
             }
-            case "RAM-Usage" -> {
+            case "memory_utilization" -> {
                 if (metric.getValue() > 85.0) {
                     metric.setIsAlert(true);
-                    System.out.println("[ALERTA DEVOPS] ¡Consumo de memoria RAM elevado!: " + metric.getValue() + "%");
+                    System.out.println("[ALERTA] ¡Consumo de RAM elevado en " + server + "!: " + metric.getValue() + "%");
                 }
             }
-            case "Disk-Space" -> {
+            case "disk_use" -> {
                 if (metric.getValue() > 95.0) {
                     metric.setIsAlert(true);
-                    System.out.println("[ALERTA CRÍTICA] ¡Servidor casi sin espacio en disco!: " + metric.getValue() + "%");
+                    System.out.println("[CRÍTICO] ¡Almacenamiento casi lleno en " + server + "!: " + metric.getValue() + "%");
                 }
             }
-            default -> System.out.println("[INFORME] Métrica recibida para componente desconocido: " + metric.getSensorName());
+            default -> System.out.println("Métrica registrada para: " + metric.getMetricName() + " en " + server);
         }
 
-        return repository.save(metric);
+        return repository.save(metric); 
     }
 
     public List<Metric> getAllMetrics() {
         return repository.findAll();
+    }
+
+    public List<Metric> getMetricsByInstance(String instanceId) {
+        return repository.findByInstanceId(instanceId);
     }
 }
