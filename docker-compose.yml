@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres-db:
+    image: postgres:15-alpine
+    container_name: monit-postgres-local
+    environment:
+      POSTGRES_DB: monit_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: tu_contrasena_segura
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
