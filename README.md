@@ -1,6 +1,6 @@
 # Cloud Telemetry API 
 
-API REST robusta diseñada en Java para el registro y monitoreo de métricas/eventos en tiempo real. Este proyecto fue desarrollado con un enfoque **Cloud-Native**, utilizando **Docker** para la contenedorización y entornos de producción en **Amazon Web Services (AWS)**.
+API REST diseñada en Java para el registro y monitoreo de métricas/eventos en tiempo real. Este proyecto esta siendo desarrollado con un enfoque **Cloud-Native**, utilizando **Docker** para la contenedorización y entornos de producción en **Amazon Web Services (AWS)**.
 
 El objetivo principal es dominar el ciclo de despliegue moderno: desde el desarrollo local en contenedores hasta la persistencia en bases de datos administradas en la nube.
 
