@@ -1,9 +1,16 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.example.demo.entity.Metric;
 import com.example.demo.service.MetricService;
-import org.springframework.web.bind.annotation.*;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/metrics")
@@ -11,14 +18,13 @@ public class MetricController {
 
     private final MetricService service;
 
-    // Inyectamos el Servicio, no el Repositorio
     public MetricController(MetricService service) {
         this.service = service;
     }
 
     @PostMapping
     public Metric saveMetric(@RequestBody Metric metric) {
-        return service.saveMetric(metric); // <--- Aquí ocurre la magia
+        return service.saveMetric(metric); 
     }
 
     @GetMapping
