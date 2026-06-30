@@ -12,6 +12,25 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - monit-network
+
+  api-service:
+    build: .
+    container_name: monit-api-local
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-db:5432/monit_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: tu_contrasena_segura
+    depends_on:
+      - postgres-db
+    networks:
+      - monit-network
 
 volumes:
   postgres_data:
+
+networks:
+  monit-network:

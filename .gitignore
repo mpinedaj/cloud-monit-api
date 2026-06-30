@@ -1,25 +1,44 @@
-HELP.md
+# Build
 target/
-.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### STS ###
-.apt_generated
+# IDE
+.idea/
+.vscode/
+*.iws
+*.iml
+*.ipr
 .classpath
-.factorypath
 .project
 .settings
 .springBeans
 .sts4-cache
+.apt_generated
+.factorypath
+*.swp
+*.swo
+*~
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
+.DS_Store
+Thumbs.db
 
-### NetBeans ###
+# Environment & Configuration
+.env
+.env.local
+*.local
+application-local.yml
+application-dev.yml
+
+# Logs
+*.log
+logs/
+
+# Databases
+*.db
+*.sqlite
+
+# NetBeans
 /nbproject/private/
 /nbbuild/
 /dist/
@@ -28,6 +47,3 @@ target/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
-
-### VS Code ###
-.vscode/
