@@ -17,8 +17,10 @@ public class Metric {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String sensorName;
+    private String metricName; 
     private Double value;
+    private String instanceId; 
+    private Boolean isAlert = false;
     private LocalDateTime timestamp;
 
     @PrePersist
@@ -28,15 +30,20 @@ public class Metric {
 
     public Metric() {}
 
-    public Metric(String sensorName, Double value) {
-        this.sensorName = sensorName;
+    public Metric(String metricName, Double value, String instanceId) {
+        this.metricName = metricName;
         this.value = value;
+        this.instanceId = instanceId;
     }
 
     public Long getId() { return id; }
-    public String getSensorName() { return sensorName; }
-    public void setSensorName(String sensorName) { this.sensorName = sensorName; }
+    public String getMetricName() { return metricName; }
+    public void setMetricName(String metricName) { this.metricName = metricName; }
     public Double getValue() { return value; }
     public void setValue(Double value) { this.value = value; }
+    public String getInstanceId() { return instanceId; }
+    public void setInstanceId(String instanceId) { this.instanceId = instanceId; }
+    public Boolean getIsAlert() { return isAlert; }
+    public void setIsAlert(Boolean isAlert) { this.isAlert = isAlert; }
     public LocalDateTime getTimestamp() { return timestamp; }
 }
