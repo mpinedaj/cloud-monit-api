@@ -5,8 +5,8 @@ COPY pom.xml .
 COPY src ./src
 RUN mvn clean package -DskipTests
 
-# Paso 2: Ejecución ligera
-FROM openjdk:17-jdk-slim
+# Paso 2: Ejecución ligera usando Eclipse Temurin (JDK 17 mínimo y seguro)
+FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
