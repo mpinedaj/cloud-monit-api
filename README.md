@@ -1,4 +1,4 @@
-# Cloud Telemetry API 🚀
+# Cloud Telemetry API 
 
 API REST robusta diseñada en Java para el registro y monitoreo de métricas/eventos en tiempo real. Este proyecto fue desarrollado con un enfoque **Cloud-Native**, utilizando **Docker** para la contenedorización y entornos de producción en **Amazon Web Services (AWS)**.
 
@@ -6,7 +6,7 @@ El objetivo principal es dominar el ciclo de despliegue moderno: desde el desarr
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 *   **Backend:** Java 17+ / Spring Boot (Spring Web, Spring Data JPA)
 *   **Contenedores:** Docker & Docker Compose
@@ -15,7 +15,7 @@ El objetivo principal es dominar el ciclo de despliegue moderno: desde el desarr
 
 ---
 
-## 📐 Arquitectura del Sistema
+## Arquitectura del Sistema
 
 El flujo de la información está estructurado de la siguiente manera:
 1. El cliente envía métricas de monitoreo mediante peticiones HTTP (JSON) a la API.
@@ -24,7 +24,7 @@ El flujo de la información está estructurado de la siguiente manera:
 
 ---
 
-## 🚀 Guía de Inicio Rápido (Desarrollo Local)
+## Guía de Inicio Rápido (Desarrollo Local)
 
 Sigue estos pasos para levantar el entorno de desarrollo en tu máquina local usando Docker.
 
