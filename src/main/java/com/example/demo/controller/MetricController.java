@@ -9,25 +9,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Metric;
-import com.example.demo.repository.MetricRepository;
+import com.example.demo.service.MetricService;
 
 @RestController
 @RequestMapping("/api/metrics")
 public class MetricController {
 
-    private final MetricRepository repository;
+    private final MetricService service;
 
-    public MetricController(MetricRepository repository) {
-        this.repository = repository;
+    public MetricController(MetricService service) {
+        this.service = service;
     }
 
     @PostMapping
     public Metric saveMetric(@RequestBody Metric metric) {
-        return repository.save(metric);
+        return service.saveMetric(metric);
     }
 
     @GetMapping
     public List<Metric> getAllMetrics() {
-        return repository.findAll();
+        return service.getAllMetrics();
     }
 }
