@@ -23,11 +23,6 @@ public class Metric {
     private Boolean isAlert = false;
     private LocalDateTime timestamp;
 
-    private Boolean isAlert = false; 
-
-    public Boolean getIsAlert() { return isAlert; }
-    public void setIsAlert(Boolean isAlert) { this.isAlert = isAlert; }
-
     @PrePersist
     protected void onCreate() {
         this.timestamp = LocalDateTime.now();
